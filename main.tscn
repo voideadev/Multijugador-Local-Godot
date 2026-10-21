@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cksgbbqjj4vbu"]
+
+[ext_resource type="Script" uid="uid://d04ushyqe1q0b" path="res://main.gd" id="1_m"]
+[ext_resource type="Script" uid="uid://b8wyvoau7tcmj" path="res://net/red.gd" id="2_t"]
+[ext_resource type="Script" uid="uid://0qx7inbj42j5" path="res://net/lan_discovery.gd" id="4_l"]
+[ext_resource type="PackedScene" path="res://escenas/mundo/mundo.tscn" id="5_w"]
+[ext_resource type="PackedScene" path="res://escenas/ui/menu_ui.tscn" id="7_m"]
+[ext_resource type="PackedScene" path="res://escenas/ui/hud.tscn" id="8_h"]
+
+[node name="Main" type="Node3D" unique_id=1036004543]
+script = ExtResource("1_m")
+
+[node name="Mundo" parent="." unique_id=1448470461 instance=ExtResource("5_w")]
+
+[node name="CamaraMenu" type="Camera3D" parent="." unique_id=1217663666]
+transform = Transform3D(1, 0, 0, 0, 0.96593, 0.25882, 0, -0.25882, 0.96593, 0, 3, 8)
+current = true
+
+[node name="Red" type="Node" parent="." unique_id=569218359]
+script = ExtResource("2_t")
+
+[node name="LanDiscovery" type="Node" parent="." unique_id=977682659]
+script = ExtResource("4_l")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=694556973]
+_spawnable_scenes = PackedStringArray("res://escenas/jugador/jugador.tscn")
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node3D" parent="." unique_id=246426744]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1751935879]
+layer = 10
+
+[node name="Menu" parent="CanvasLayer" unique_id=1534176129 instance=ExtResource("7_m")]
+
+[node name="Hud" parent="CanvasLayer" unique_id=1408540201 instance=ExtResource("8_h")]
