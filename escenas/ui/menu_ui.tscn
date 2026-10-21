@@ -1,0 +1,337 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://escenas/ui/menu_ui.gd" id="1_s"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_tipo"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_modo"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s")
+
+[node name="Fondo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0.55)
+
+[node name="Principal" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Caja" type="VBoxContainer" parent="Principal"]
+layout_mode = 2
+custom_minimum_size = Vector2(560, 0)
+theme_override_constants/separation = 18
+
+[node name="Titulo" type="Label" parent="Principal/Caja"]
+layout_mode = 2
+text = "PLANTILLA MULTIJUGADOR"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 38
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="BtnSolo" type="Button" parent="Principal/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Un jugador"
+theme_override_font_sizes/font_size = 32
+
+[node name="BtnMulti" type="Button" parent="Principal/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Multijugador"
+theme_override_font_sizes/font_size = 32
+
+[node name="BtnSalir" type="Button" parent="Principal/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Salir"
+theme_override_font_sizes/font_size = 32
+
+[node name="Multi" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="Caja" type="VBoxContainer" parent="Multi"]
+layout_mode = 2
+custom_minimum_size = Vector2(560, 0)
+theme_override_constants/separation = 18
+
+[node name="TituloMulti" type="Label" parent="Multi/Caja"]
+layout_mode = 2
+text = "Multijugador"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 48
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="BtnCrear" type="Button" parent="Multi/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Crear partida"
+theme_override_font_sizes/font_size = 32
+
+[node name="BtnUnirse" type="Button" parent="Multi/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Unirse a partida"
+theme_override_font_sizes/font_size = 32
+
+[node name="BtnAtrasMulti" type="Button" parent="Multi/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Atrás"
+theme_override_font_sizes/font_size = 32
+
+[node name="Crear" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="Caja" type="VBoxContainer" parent="Crear"]
+layout_mode = 2
+custom_minimum_size = Vector2(560, 0)
+theme_override_constants/separation = 18
+
+[node name="TituloCrear" type="Label" parent="Crear/Caja"]
+layout_mode = 2
+text = "Crear partida"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 48
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="NombreCrear" type="LineEdit" parent="Crear/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 70)
+max_length = 20
+placeholder_text = "Nombre de la partida"
+alignment = 1
+theme_override_font_sizes/font_size = 32
+
+[node name="Tipo" type="HBoxContainer" parent="Crear/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnPublica" type="Button" parent="Crear/Caja/Tipo"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 84)
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_tipo")
+text = "Pública"
+theme_override_font_sizes/font_size = 32
+
+[node name="BtnPrivada" type="Button" parent="Crear/Caja/Tipo"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 84)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_tipo")
+text = "Privada"
+theme_override_font_sizes/font_size = 32
+
+[node name="FilaCodigo" type="HBoxContainer" parent="Crear/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+visible = false
+theme_override_constants/separation = 12
+
+[node name="LblCodigo" type="Label" parent="Crear/Caja/FilaCodigo"]
+layout_mode = 2
+text = "Código"
+horizontal_alignment = 0
+theme_override_font_sizes/font_size = 32
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="CodigoCrear" type="LineEdit" parent="Crear/Caja/FilaCodigo"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 70)
+max_length = 6
+virtual_keyboard_type = 2
+alignment = 1
+theme_override_font_sizes/font_size = 34
+
+[node name="BtnConfirmarCrear" type="Button" parent="Crear/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Crear"
+theme_override_font_sizes/font_size = 32
+
+[node name="BtnAtrasCrear" type="Button" parent="Crear/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Atrás"
+theme_override_font_sizes/font_size = 32
+
+[node name="Unirse" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="Caja" type="VBoxContainer" parent="Unirse"]
+layout_mode = 2
+custom_minimum_size = Vector2(640, 0)
+theme_override_constants/separation = 18
+
+[node name="TituloUnirse" type="Label" parent="Unirse/Caja"]
+layout_mode = 2
+text = "Partidas en tu wifi"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 44
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="EstadoBusqueda" type="Label" parent="Unirse/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Buscando partidas..."
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="Scroll" type="ScrollContainer" parent="Unirse/Caja"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 240)
+horizontal_scroll_mode = 0
+
+[node name="Lista" type="VBoxContainer" parent="Unirse/Caja/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="BtnAtrasUnirse" type="Button" parent="Unirse/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Atrás"
+theme_override_font_sizes/font_size = 32
+
+[node name="Codigo" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+
+[node name="Caja" type="VBoxContainer" parent="Codigo"]
+layout_mode = 2
+custom_minimum_size = Vector2(560, 0)
+theme_override_constants/separation = 18
+
+[node name="TituloCodigo" type="Label" parent="Codigo/Caja"]
+layout_mode = 2
+text = "Partida privada"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 48
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="CodigoUnirse" type="LineEdit" parent="Codigo/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 70)
+max_length = 6
+placeholder_text = "Código"
+virtual_keyboard_type = 2
+alignment = 1
+theme_override_font_sizes/font_size = 34
+
+[node name="ErrorCodigo" type="Label" parent="Codigo/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 28
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0.4, 0.4, 1)
+
+[node name="BtnEntrar" type="Button" parent="Codigo/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Unirse"
+theme_override_font_sizes/font_size = 32
+
+[node name="BtnCancelarCodigo" type="Button" parent="Codigo/Caja"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 84)
+text = "Cancelar"
+theme_override_font_sizes/font_size = 32
+
+[node name="Mensaje" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -90.0
+offset_right = 400.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 28
+theme_override_constants/outline_size = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
